@@ -112,13 +112,55 @@
     margin-top: 16px;
     line-height: 1.6;
   }
-  .success {
-    display: none;
-    text-align: center;
-    padding: 40px 20px;
+  .screenshots {
+    margin: 24px 0;
   }
-  .success h2 { color: #ffdc50; font-size: 1.5rem; margin-bottom: 12px; }
-  .success p  { color: #ccc; font-size: 0.95rem; line-height: 1.8; }
+  .screenshots h3 {
+    color: #ffdc50;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(220,170,30,0.25);
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .gallery img:hover {
+    transform: scale(1.03);
+    border-color: #ffdc50;
+  }
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 95vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    border: 2px solid #ffdc50;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 16px; right: 24px;
+    color: #ffdc50;
+    font-size: 2rem;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -139,6 +181,20 @@
       <p><span>🔬</span>Research tech tree upgrades</p>
     </div>
 
+    <div class="screenshots">
+      <h3>📸 SCREENSHOTS</h3>
+      <div class="gallery">
+        <img src="screenshots/Screenshot_20260602_080545.jpg" onclick="openLB(this)">
+        <img src="screenshots/Screenshot_20260602_080554.jpg" onclick="openLB(this)">
+        <img src="screenshots/Screenshot_20260602_080601.jpg" onclick="openLB(this)">
+        <img src="screenshots/Screenshot_20260602_080618.jpg" onclick="openLB(this)">
+        <img src="screenshots/Screenshot_20260602_080702.jpg" onclick="openLB(this)">
+        <img src="screenshots/Screenshot_20260602_080749.jpg" onclick="openLB(this)">
+        <img src="screenshots/Screenshot_20260602_080819.jpg" onclick="openLB(this)">
+        <img src="screenshots/Screenshot_20260602_080830.jpg" onclick="openLB(this)">
+      </div>
+    </div>
+
     <button onclick="window.open('https://forms.gle/arWCSqPG4xHqmrq1A','_blank')">⚔️ JOIN BETA TEST</button>
 
     <p class="note">
@@ -148,5 +204,13 @@
   </div>
 </div>
 
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+  <span class="lightbox-close">✕</span>
+  <img id="lbImg" src="">
+</div>
+<script>
+  function openLB(el) { document.getElementById('lbImg').src = el.src; document.getElementById('lightbox').classList.add('active'); }
+  function closeLB()  { document.getElementById('lightbox').classList.remove('active'); }
+</script>
 </body>
 </html>
