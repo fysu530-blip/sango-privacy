@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>穿越三國 - 封閉測試招募</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Microsoft YaHei', 'Noto Sans TC', Arial, sans-serif;
+    background: linear-gradient(135deg, #1a0505 0%, #2d0a0a 50%, #0a0a1a 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(220,170,30,0.4);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 520px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+  }
+  .game-title {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .game-title h1 {
+    font-size: 2rem;
+    color: #ffdc50;
+    letter-spacing: 4px;
+  }
+  .game-title p {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-top: 4px;
+  }
+  .badge {
+    display: block;
+    background: #7b1010;
+    color: #ffdc50;
+    font-size: 0.78rem;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin: 12px auto 24px;
+    text-align: center;
+    width: fit-content;
+    letter-spacing: 2px;
+  }
+  .features {
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+  .features p {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.9;
+  }
+  .features span { color: #ffdc50; margin-right: 6px; }
+  .screenshots { margin: 24px 0; }
+  .screenshots h3 {
+    color: #ffdc50;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(220,170,30,0.25);
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .gallery img:hover { transform: scale(1.03); border-color: #ffdc50; }
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 95vw; max-height: 90vh; border-radius: 10px; border: 2px solid #ffdc50; }
+  .lightbox-close { position: fixed; top: 16px; right: 24px; color: #ffdc50; font-size: 2rem; cursor: pointer; }
+  button {
+    width: 100%;
+    margin-top: 28px;
+    padding: 14px;
+    background: linear-gradient(135deg, #8b1a1a, #c0392b);
+    border: none;
+    border-radius: 10px;
+    color: #ffdc50;
+    font-size: 1.05rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  button:hover { opacity: 0.85; }
+  .note {
+    color: #888;
+    font-size: 0.78rem;
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="game-title">
+    <h1>穿越三國</h1>
+    <p>Cross the Three Kingdoms — 策略 RPG</p>
+  </div>
+  <span class="badge">🎮 封閉測試招募中</span>
+
+  <div class="features">
+    <p><span>🏯</span>建設城市、開發土地領域</p>
+    <p><span>⚔️</span>野戰與攻城戰略戰鬥</p>
+    <p><span>🎖️</span>招募三國歷史名將</p>
+    <p><span>🗺️</span>自由探索廣大世界地圖</p>
+    <p><span>🔬</span>研究科技樹解鎖強力升級</p>
+  </div>
+
+  <div class="screenshots">
+    <h3>📸 遊戲畫面</h3>
+    <div class="gallery">
+      <img src="screenshots_zh/Screenshot_20260602_080545.jpg" onclick="openLB(this)">
+      <img src="screenshots_zh/Screenshot_20260602_080554.jpg" onclick="openLB(this)">
+      <img src="screenshots_zh/Screenshot_20260602_080601.jpg" onclick="openLB(this)">
+      <img src="screenshots_zh/Screenshot_20260602_080618.jpg" onclick="openLB(this)">
+      <img src="screenshots_zh/Screenshot_20260602_080702.jpg" onclick="openLB(this)">
+      <img src="screenshots_zh/Screenshot_20260602_080749.jpg" onclick="openLB(this)">
+      <img src="screenshots_zh/Screenshot_20260602_080819.jpg" onclick="openLB(this)">
+      <img src="screenshots_zh/Screenshot_20260602_080830.jpg" onclick="openLB(this)">
+    </div>
+  </div>
+
+  <button onclick="window.open('https://forms.gle/tqK5AvuyhgekWdFPA','_blank')">⚔️ 立即報名封測</button>
+
+  <p class="note">
+    您的 Gmail 僅用於加入 Google Play 封閉測試名單<br>
+    報名後將於 3 個工作天內寄出下載連結
+  </p>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+  <span class="lightbox-close">✕</span>
+  <img id="lbImg" src="">
+</div>
+<script>
+  function openLB(el) { document.getElementById('lbImg').src = el.src; document.getElementById('lightbox').classList.add('active'); }
+  function closeLB()  { document.getElementById('lightbox').classList.remove('active'); }
+</script>
+</body>
+</html>
