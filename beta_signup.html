@@ -139,60 +139,14 @@
       <p><span>🔬</span>Research tech tree upgrades</p>
     </div>
 
-    <form id="signupForm" novalidate>
-      <label>Nickname <span class="req">*</span></label>
-      <input type="text" id="nickname" placeholder="Your nickname" required>
-      <div class="error" id="errNickname">Please enter your nickname.</div>
-
-      <label>Gmail Address <span class="req">*</span></label>
-      <input type="email" id="gmail" placeholder="example@gmail.com" required>
-      <div class="error" id="errGmail">Please enter a valid Gmail address.</div>
-
-      <button type="submit">⚔️ JOIN BETA TEST</button>
-    </form>
+    <button onclick="window.open('https://forms.gle/arWCSqPG4xHqmrq1A','_blank')">⚔️ JOIN BETA TEST</button>
 
     <p class="note">
       Your Gmail will only be used to add you to the Google Play beta tester list.<br>
       We will send you the download link within 3 business days.
     </p>
   </div>
-
-  <!-- Success View -->
-  <div class="success" id="successView">
-    <h2>✅ Sign Up Complete!</h2>
-    <p>
-      Thank you for joining the beta test!<br><br>
-      We will add your Gmail to the tester list<br>
-      and send you the download link within <strong style="color:#ffdc50;">3 business days</strong>.<br><br>
-      Stay tuned and get ready for battle! ⚔️
-    </p>
-  </div>
 </div>
 
-<script>
-  const SHEET_URL = ''; // 可選：填入 Google Apps Script Web App URL 自動收集
-
-  document.getElementById('signupForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    let valid = true;
-
-    const nickname = document.getElementById('nickname').value.trim();
-    const gmail    = document.getElementById('gmail').value.trim();
-
-    document.getElementById('errNickname').style.display = 'none';
-    document.getElementById('errGmail').style.display    = 'none';
-
-    if (!nickname) {
-      document.getElementById('errNickname').style.display = 'block'; valid = false;
-    }
-    if (!gmail.toLowerCase().endsWith('@gmail.com') || gmail.length < 12) {
-      document.getElementById('errGmail').style.display = 'block'; valid = false;
-    }
-    if (!valid) return;
-
-    document.getElementById('formView').style.display    = 'none';
-    document.getElementById('successView').style.display = 'block';
-  });
-</script>
 </body>
 </html>
